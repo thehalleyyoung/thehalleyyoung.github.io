@@ -1,14 +1,15 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halley Young - Maintaining Diversity in the Age of AI</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Halley Young — Diverse, steerable, and verifiable generative systems</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Playfair+Display:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<style>
         :root {
             --primary: #2d3748;
             --secondary: #7f56d9;
@@ -523,367 +524,475 @@
                 left: 30px;
             }
         }
-    </style>
-</head>
+
+        /* --- Added 2025 site refresh --- */
+        .lead {
+            font-size: 1.05rem;
+            color: var(--muted);
+            max-width: 850px;
+            margin: 0.75rem auto 0;
+            line-height: 1.7;
+        }
+        .badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            padding: 0.25rem 0.6rem;
+            border-radius: 999px;
+            background: rgba(127, 86, 217, 0.12);
+            color: var(--secondary);
+            margin-right: 0.5rem;
+            vertical-align: middle;
+            border: 1px solid rgba(127, 86, 217, 0.20);
+        }
+        .card-list {
+            margin: 0.75rem 0 0;
+            padding-left: 1.1rem;
+            color: var(--muted);
+        }
+        .card-list li {
+            margin: 0.25rem 0;
+        }
+        .section-intro {
+            max-width: 900px;
+            margin: 0.75rem auto 0;
+        }
+        .small-note {
+            font-size: 0.95rem;
+            color: var(--muted);
+        }
+        .kicker {
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: rgba(127, 86, 217, 0.9);
+        }
+</style>
+<meta content="Halley Young: research on diverse, steerable, and verifiable generative systems across creative AI and formal methods." name="description"/></head>
 <body>
-    <div class="nav-container">
-        <nav>
-            <div class="logo">Halley Young</div>
-            <div class="nav-links">
-                <a href="#about">About</a>
-                <a href="#research">Research</a>
-                <a href="#projects">Projects</a>
-                <a href="#publications">Publications</a>
-                <a href="#experience">Experience</a>
-                <a href="#contact">Contact</a>
-            </div>
-        </nav>
-    </div>
-
-    <header>
-        <div class="container header-content">
-            <h1>Halley Young</h1>
-            <p class="subtitle">Maintaining Diversity in the Age of AI</p>
-            <p>Postdoctoral Researcher at Microsoft Research NYC focused on diversifying AI outputs and preserving user autonomy in both creative and technical domains.</p>
-            <div class="cta-buttons">
-                <a href="#research" class="btn btn-primary"><i class="fas fa-flask"></i> My Research</a>
-                <a href="#contact" class="btn btn-secondary"><i class="fas fa-envelope"></i> Contact Me</a>
-            </div>
-        </div>
-    </header>
-
-    <section id="about">
-        <div class="container">
-            <div class="section-header">
-                <h2>About Me</h2>
-                <p class="section-subtitle">Combining technical expertise with a focus on AI diversity and human agency</p>
-            </div>
-            <p>I'm a postdoctoral researcher at Microsoft Research in NYC, with a focus on diversifying the output of AI in both creative and technical domains. With a background in computer science and expertise in deep learning, generative models, and music AI, I approach artificial intelligence from a unique perspective: how can we ensure AI systems enhance human creativity and autonomy rather than diminish them?</p>
-            <p>My research addresses two related but distinct dangers in current AI development:</p>
-            <ol>
-                <li><strong>Output homogenization:</strong> The tendency of AI systems to converge toward a narrow range of outputs that represent a statistical average rather than the full spectrum of human expression</li>
-                <li><strong>Deprivation of user autonomy:</strong> The risk that AI tools replace human decision-making rather than augmenting it</li>
-            </ol>
-            
-            <div class="highlights-grid">
-                <div class="highlight-item">
-                    <div class="highlight-icon"><i class="fas fa-fingerprint"></i></div>
-                    <div class="highlight-title">Diversity Preservation</div>
-                    <p>Developing techniques to maintain diversity in AI outputs across domains</p>
-                </div>
-                <div class="highlight-item">
-                    <div class="highlight-icon"><i class="fas fa-user-shield"></i></div>
-                    <div class="highlight-title">User Agency</div>
-                    <p>Creating systems that enhance rather than replace human decision-making</p>
-                </div>
-                <div class="highlight-item">
-                    <div class="highlight-icon"><i class="fas fa-code-branch"></i></div>
-                    <div class="highlight-title">Technical Expertise</div>
-                    <p>Deep knowledge of generative models, formal methods, and creative AI</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="research" class="section-alternate">
-        <div class="container">
-            <div class="section-header">
-                <h2>Research Focus</h2>
-                <p class="section-subtitle">Exploring the technical and social aspects of AI diversity</p>
-            </div>
-            <h3>Diversity as a Technical and Social Imperative</h3>
-            <p>For me, diversity is both a technical term (maximizing expected pairwise distance between two answers conditioned on them both being "good") and a concept with profound creative, economic, and social implications.</p>
-            <p>In a recent study (paper in submission), I found that 249 out of 250 poems generated by ChatGPT without special prompting were all identified <strong>even by ChatGPT itself</strong> as being derived from the same poet (John Keats). This striking homogeneity illustrates how large language models tend to converge toward a "safe" statistical mean—a problem that extends beyond poetry to code, design, business ideas, and other domains where innovation requires deviation from the norm.</p>
-            <p>My research develops methods to maintain diversity in AI outputs <strong>in cases where individuals, companies, or society would benefit from exploring a range of good but different possibilities</strong> rather than a single "optimal" solution.</p>
-            
-            <div class="card-container">
-                <div class="card">
-                    <div class="card-content">
-                        <h3 class="card-title">Counter-Egos, Not Replacements</h3>
-                        <p class="card-subtitle">Collaborating with professional poets</p>
-                        <p class="card-text">Working with professional poets to develop methods for creating "Counter-Egos" rather than AI replacements. This approach focuses on reinterpreting poetic styles through the lens of Webpage Poetry, allowing for new forms of expression.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-content">
-                        <h3 class="card-title">Identity Matters</h3>
-                        <p class="card-subtitle">IUI (HAI-GEN) 2024</p>
-                        <p class="card-text">Enabling people to explore their identity using LLMs with sophisticated algorithms that lead to real-world usable outputs, providing tools for personal exploration and discovery guided by user agency.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-content">
-                        <h3 class="card-title">Controllable Music Generation</h3>
-                        <p class="card-subtitle">70,000+ listens on SoundCloud</p>
-                        <p class="card-text">Developing music generation models that enhance musician creativity while preserving artistic control and avoiding output homogenization.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects">
-        <div class="container">
-            <div class="section-header">
-                <h2>Projects</h2>
-                <p class="section-subtitle">Research initiatives focused on diversity in AI</p>
-            </div>
-            
-            <div class="card-container">
-                <div class="card">
-                    <div class="card-content">
-                        <h3 class="card-title">AI for Creativity</h3>
-                        <p class="card-subtitle"><a href="https://diversifyai.net" target="_blank">diversifyai.net</a></p>
-                        <p class="card-text">A hub for research, tools, and essays on maintaining creative diversity in the age of AI. Provides resources for artists, developers, and researchers interested in building AI systems that enhance rather than constrain human creativity.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-content">
-                        <h3 class="card-title">Music Generation Research</h3>
-                        <p class="card-subtitle"><a href="https://soundcloud.com/user-332259139" target="_blank">SoundCloud (70,000+ listens)</a></p>
-                        <p class="card-text">Showcasing research on autonomy in music generation with practical demonstrations that have reached a substantial audience.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-content">
-                        <h3 class="card-title">Diversifying LLM Outputs</h3>
-                        <p class="card-subtitle">Current Research</p>
-                        <p class="card-text">Developing techniques to ensure large language models can produce diverse, creative outputs rather than converging on a statistical mean.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="publications" class="section-alternate">
-        <div class="container">
-            <div class="section-header">
-                <h2>Selected Publications</h2>
-                <p class="section-subtitle">Research contributions to AI diversity and controllability</p>
-            </div>
-            
-            <div class="publication">
-                <div class="publication-title">Neurosymbolic Deep Generative Models for Sequence Data with Relational Constraints (2022)</div>
-                <div class="publication-authors">Joint work with Osbert Bastani and Maxwell Du</div>
-                <div class="publication-venue">Published in NEURIPS 2022</div>
-                <p>Developed a method for measuring and producing meaningful global coherence in domains such as music and poetry, enabling generated outputs that maintain both local quality and structural integrity.</p>
-            </div>
-            
-            <div class="publication">
-                <div class="publication-title">Compositional Steering of Music Transformers (2021)</div>
-                <div class="publication-authors">Joint work with Jesse Engel, Vincent Dumoulin, Pablo Castro, and Anna Huang</div>
-                <div class="publication-venue">Published in HAI-GEN 2022</div>
-                <p>Developed a novel approach to steer music transformer models without manipulating their parameters, giving users greater control over generated music while preserving model capabilities.</p>
-            </div>
-            
-            <div class="publication">
-                <div class="publication-title">Learning Neurosymbolic Generative Models via Program Synthesis (2019)</div>
-                <div class="publication-authors">Joint work with Osbert Bastani and Mayur Naik</div>
-                <div class="publication-venue">Published in ICML 2019 proceedings</div>
-                <p>Developed generative models based on latent structures detectable via program synthesis, laying groundwork for more interpretable and controllable generative AI.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="experience">
-        <div class="container">
-            <div class="section-header">
-                <h2>Experience</h2>
-                <p class="section-subtitle">Academic and industry roles focused on AI diversity</p>
-            </div>
-            
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2023-Present</div>
-                        <h3>Microsoft Research, NYC</h3>
-                        <p><strong>Postdoctoral Researcher</strong></p>
-                        <p>Leading research on diversifying AI outputs in creative/technical/high-impact domains, developing new algorithms and evaluation metrics for measuring and promoting diversity in generative models.</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2021-2023</div>
-                        <h3>Google Brain/Magenta</h3>
-                        <p><strong>Research Intern</strong></p>
-                        <p>Developed controllable generative music models to avoid both user de-agentification and output homogeny. Created tools that allow musicians to guide AI systems rather than be replaced by them.</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2019-2020</div>
-                        <h3>Riffit</h3>
-                        <p><strong>Software Engineer/Researcher</strong></p>
-                        <p>Performed research in automated music production for therapeutic purposes leading to a patent.
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2020-2021</div>
-                        <h3>University of Pennsylvania</h3>
-                        <p><strong>Teaching Assistant</strong></p>
-                        <p>TA in Graduate Artificial Intelligence, Head TA in Graduate Applied Machine Learning. Designed curriculum that emphasized ethical considerations alongside technical skills.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="education" class="section-alternate">
-        <div class="container">
-            <div class="section-header">
-                <h2>Education</h2>
-            </div>
-            
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2017-2023</div>
-                        <h3>PhD in Computer Science</h3>
-                        <p><strong>University of Pennsylvania</strong></p>
-                        <p>Awarded the Chateaubriand Fellowship for Humanities and Social Sciences (declined due to health issues). Dissertation focused on maintaining controllability in generative AI systems.</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2014-2017</div>
-                        <h3>B.A. magna cum laude, Computer Science</h3>
-                        <p><strong>New York University</strong></p>
-                        <p>Awarded the Faculty Memorial Prize, the Computer Science Prize, and the Computer Science Prize for Outstanding Performance in Computer Science.</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2013-2014</div>
-                        <h3>B.A. Candidate</h3>
-                        <p><strong>University of Chicago</strong></p>
-                        <p>Awarded the Lilian Gertrude Selz Prize.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="skills">
-        <div class="container">
-            <div class="section-header">
-                <h2>Skills</h2>
-            </div>
-            
-            <h3>Programming Languages</h3>
-            <div class="skills-container">
-                <div class="skill-tag"><i class="fab fa-python"></i> Python (PyTorch, JAX)</div>
-                <div class="skill-tag">Julia</div>
-                <div class="skill-tag">C</div>
-                <div class="skill-tag">Matlab</div>
-                <div class="skill-tag">Haskell</div>
-            </div>
-            
-            <h3>Research Areas</h3>
-            <div class="skills-container">
-                <div class="skill-tag">Deep Learning</div>
-                <div class="skill-tag">Generative Models</div>
-                <div class="skill-tag">Steerable AI</div>
-                <div class="skill-tag">Music AI</div>
-                <div class="skill-tag">Formal Methods</div>
-                <div class="skill-tag">Human-AI Interaction</div>
-                <div class="skill-tag">AI Diversity</div>
-                <div class="skill-tag">Neurosymbolic Models</div>
-            </div>
-            
-        </div>
-    </section>
-
-    <section id="contact" class="section-alternate">
-        <div class="container">
-            <div class="section-header">
-                <h2>Contact</h2>
-                <p class="section-subtitle">Get in touch to discuss research collaboration or speaking opportunities</p>
-            </div>
-            
-            <div class="contact-grid">
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div class="contact-text">
-                        <div class="contact-label">Email</div>
-                        <div class="contact-value">
-                            <a href="mailto:halley@diversifyai.net">halley@diversifyai.net</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-globe"></i>
-                    </div>
-                    <div class="contact-text">
-                        <div class="contact-label">Website</div>
-                        <div class="contact-value">
-                            <a href="https://diversifyai.net" target="_blank">diversifyai.net</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fab fa-soundcloud"></i>
-                    </div>
-                    <div class="contact-text">
-                        <div class="contact-label">SoundCloud</div>
-                        <div class="contact-value">
-                            <a href="https://soundcloud.com/halleyyoung" target="_blank">Music Generation Research</a>
-                        </div>
-                    </div>
-                </div>
-                
- <!--                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fab fa-github"></i>
-                    </div>
-                    <div class="contact-text">
-                        <div class="contact-label">GitHub</div>
-                        <div class="contact-value">
-                            <a href="https://github.com/halleyyoung" target="_blank">github.com/halleyyoung</a>
-                        </div>
-                    </div>
-                </div> -->
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <h3>Halley Young</h3>
-            <p>Maintaining Diversity in the Age of AI</p>
-            
-            <div class="social-links">
-                <a href="https://soundcloud.com/user-332259139" class="social-link" target="_blank">
-                    <i class="fab fa-soundcloud"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/halley-young-3b958327b/" class="social-link" target="_blank">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-            </div>
-            
-            <p class="footer-text">&copy; 2025 Halley Young. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script>
+<div class="nav-container">
+<nav>
+<div class="logo">Halley Young</div>
+<div class="nav-links">
+<a href="#about">About</a>
+<a href="#research">Research</a>
+<a href="#projects">Work</a>
+<a href="#publications">Publications</a>
+<a href="#experience">Experience</a>
+<a href="#contact">Contact</a>
+</div>
+</nav>
+</div>
+<header>
+<div class="container header-content">
+<div class="kicker">Generative AI • Formal Methods • HCI</div>
+<h1>Halley Young</h1>
+<p class="subtitle">Diverse, steerable, and verifiable generative systems</p>
+<p class="lead">
+                I build algorithms and tools that expand people’s <strong>option space</strong>—producing many high‑quality,
+                meaningfully different candidates under human‑meaningful constraints—so AI augments creativity and engineering
+                without collapsing into a single “safe” style.
+            </p>
+<div class="cta-buttons">
+<a class="btn btn-primary" href="#publications"><i class="fas fa-file-lines"></i> Papers</a>
+<a class="btn btn-secondary" href="#projects"><i class="fas fa-layer-group"></i> Work &amp; Demos</a>
+</div>
+</div>
+</header>
+<main>
+<section id="about">
+<div class="container">
+<div class="section-header">
+<h2>About</h2>
+<p class="section-subtitle">One program, many domains: design the <em>distribution</em>, not just the best guess</p>
+</div>
+<div class="section-intro">
+<p>
+                    I’m a postdoctoral researcher at Microsoft Research NYC. My work sits at the intersection of
+                    generative modeling, human‑AI interaction, and formal methods.
+                    Across creative domains (music, poetry, identity) and technical domains (code and verification),
+                    I focus on a single question:
+                    <strong>How do we generate many valid possibilities—and let humans steer them—while retaining guarantees when they matter?</strong>
+</p>
+</div>
+<div class="highlights-grid">
+<div class="highlight-item">
+<div class="highlight-icon"><i class="fas fa-expand"></i></div>
+<div class="highlight-title">Option Space</div>
+<p>Diversity, novelty, and anti‑homogenization: keep the set of “good answers” broad rather than collapsing to the mean.</p>
+</div>
+<div class="highlight-item">
+<div class="highlight-icon"><i class="fas fa-sliders"></i></div>
+<div class="highlight-title">Control</div>
+<p>Steering interfaces and “counter‑egos”: systems that amplify decisions instead of replacing the decision‑maker.</p>
+</div>
+<div class="highlight-item">
+<div class="highlight-icon"><i class="fas fa-shield-halved"></i></div>
+<div class="highlight-title">Guarantees</div>
+<p>Structure, constraints, and verification: when reliability matters, make it explicit and checkable.</p>
+</div>
+</div>
+<p class="small-note">
+                If you’re looking for a one‑liner: I work on <strong>distribution design under constraints</strong>—for art, for code, and for systems that people can trust.
+            </p>
+</div>
+</section>
+<section class="section-alternate" id="research">
+<div class="container">
+<div class="section-header">
+<h2>Research Program</h2>
+<p class="section-subtitle">A common toolkit: constraints/specifications → many valid candidates → human steering</p>
+</div>
+<h3>The distribution, not just the best guess</h3>
+<p>
+                Many deployed systems optimize for a single “best” output, which can inadvertently encourage homogenization
+                and reduce user agency. I instead treat generation as <em>set construction</em>:
+                define what counts as valid, produce a diverse set of valid candidates, and expose controllable levers so people
+                can navigate the space.
+            </p>
+<div class="card-container">
+<div class="card">
+<div class="card-content">
+<h3 class="card-title">Option Space</h3>
+<p class="card-subtitle">Diversity &amp; novelty as first‑class objectives</p>
+<p class="card-text">
+                            I build evaluation metrics and generation methods that resist collapse to a statistical mean,
+                            especially in settings where innovation, exploration, and perspective matter.
+                        </p>
+<ul class="card-list">
+<li>Generative collisions / novelty metrics for text and structured outputs</li>
+<li>Sampling and search that produces <em>many</em> high‑quality alternatives, not one answer</li>
+<li>Diversity‑aware objectives aligned with real user goals</li>
+</ul>
+</div>
+</div>
+<div class="card">
+<div class="card-content">
+<h3 class="card-title">Control</h3>
+<p class="card-subtitle">Steering without erasing the human</p>
+<p class="card-text">
+                            I focus on controllability that feels human‑meaningful: compositional levers, identity‑grounded
+                            distributions, and collaborations that treat AI as a “counter‑ego,” not a replacement.
+                        </p>
+<ul class="card-list">
+<li><a href="https://hai-gen.github.io/2024/papers/1165-Young.pdf" target="_blank">Identity → distributions</a> (HAI‑GEN @ IUI Workshops)</li>
+<li><a href="https://hai-gen.github.io/2022/papers/paper-HAIGEN-YoungHalley.pdf" target="_blank">Compositional steering</a> for music transformers</li>
+<li>Creative tooling that preserves authorship and intent</li>
+</ul>
+</div>
+</div>
+<div class="card">
+<div class="card-content">
+<h3 class="card-title">Guarantees</h3>
+<p class="card-subtitle">Constraints, structure, and verification</p>
+<p class="card-text">
+                            When outputs must satisfy hard rules—musical form, program semantics, safety constraints—explicit
+                            structure and formal methods become the backbone of trustworthy generation.
+                        </p>
+<ul class="card-list">
+<li><a href="https://proceedings.neurips.cc/paper_files/paper/2022/file/f13ceb1b94145aad0e54186373cc86d7-Paper-Conference.pdf" target="_blank">Relational‑constraint generative modeling</a> (NeurIPS 2022)</li>
+<li><a href="https://proceedings.mlr.press/v97/young19a.html" target="_blank">Program‑synthesis‑guided generative modeling</a> (ICML 2019)</li>
+<li>LLM‑assisted verification tooling: generate and check artifacts, not just text</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="projects">
+<div class="container">
+<div class="section-header">
+<h2>Work</h2>
+<p class="section-subtitle">Methods, systems, and public scholarship</p>
+</div>
+<div class="card-container">
+<div class="card">
+<div class="card-content">
+<h3 class="card-title"><span class="badge">Method</span>Relational‑Constraint Generation</h3>
+<p class="card-subtitle">Global coherence with checkable structure</p>
+<p class="card-text">
+                            Generative models for sequence data that obey relational constraints—useful when “locally good”
+                            isn’t enough and outputs must satisfy global structure.
+                        </p>
+<p class="small-note"><a href="https://proceedings.neurips.cc/paper_files/paper/2022/hash/f13ceb1b94145aad0e54186373cc86d7-Abstract-Conference.html" target="_blank">NeurIPS 2022 paper</a></p>
+</div>
+</div>
+<div class="card">
+<div class="card-content">
+<h3 class="card-title"><span class="badge">Method</span>Program‑Synthesis‑Guided Generation</h3>
+<p class="card-subtitle">Latent structure discovered by synthesis</p>
+<p class="card-text">
+                            Using program synthesis to discover and enforce latent structure, making generation more interpretable and controllable.
+                        </p>
+<p class="small-note"><a href="https://arxiv.org/abs/1901.08565" target="_blank">ICML 2019 / arXiv</a></p>
+</div>
+</div>
+<div class="card">
+<div class="card-content">
+<h3 class="card-title"><span class="badge">Method</span>Compositional Steering</h3>
+<p class="card-subtitle">Control without changing model parameters</p>
+<p class="card-text">
+                            Steering music transformer generation by composing controllable mechanisms, keeping the model’s capabilities while adding user levers.
+                        </p>
+<p class="small-note"><a href="https://hai-gen.github.io/2022/papers/paper-HAIGEN-YoungHalley.pdf" target="_blank">HAI‑GEN 2022 paper</a></p>
+</div>
+</div>
+<div class="card">
+<div class="card-content">
+<h3 class="card-title"><span class="badge">System</span>AI for Creativity</h3>
+<p class="card-subtitle"><a href="https://aiforcreativity.net/" target="_blank">aiforcreativity.net</a></p>
+<p class="card-text">
+                            Essays and public‑facing projects on identity, authorship, and the future of creative work with generative systems.
+                        </p>
+</div>
+</div>
+<div class="card">
+<div class="card-content">
+<h3 class="card-title"><span class="badge">System</span>Identity → Generative Distributions</h3>
+<p class="card-subtitle">From statements of self to usable creative option spaces</p>
+<p class="card-text">
+                            Methods for turning individual identity statements into “desirable” artistic distributions—supporting exploration rather than prescribing a single style.
+                        </p>
+<p class="small-note"><a href="https://hai-gen.github.io/2024/papers/1165-Young.pdf" target="_blank">HAI‑GEN 2024 paper</a> • <a href="https://aiforcreativity.net/identityproject.html" target="_blank">Project page</a></p>
+</div>
+</div>
+<div class="card">
+<div class="card-content">
+<h3 class="card-title"><span class="badge">Demos</span>Music Generation Experiments</h3>
+<p class="card-subtitle"><a href="https://soundcloud.com/halleyyoung" target="_blank">SoundCloud</a></p>
+<p class="card-text">
+                            Practical demonstrations of controllable music generation: tools that help musicians iterate, explore, and keep authorship.
+                        </p>
+</div>
+</div>
+<div class="card">
+<div class="card-content">
+<h3 class="card-title"><span class="badge">Now</span>Current Directions</h3>
+<p class="card-subtitle">What I’m building next</p>
+<p class="card-text">
+                            Extending “distribution design under constraints” to modern LLM tooling and reliable agents.
+                        </p>
+<ul class="card-list">
+<li>Novelty &amp; collision‑probability views of generation (text, code, and structured artifacts)</li>
+<li>LLM‑assisted verification tools (generate artifacts + check them with solvers/provers)</li>
+<li>Specification‑aware agent design: steering and safety as compositional constraints</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="section-alternate" id="publications">
+<div class="container">
+<div class="section-header">
+<h2>Selected Publications</h2>
+<p class="section-subtitle">Unified by controllability, structure, and the production of many valid candidates</p>
+</div>
+<p class="lead">
+                Across venues, the through‑line is consistent: make the implicit structure explicit, generate a <em>set</em> of
+                valid candidates, and give people meaningful control over which region of the space they explore.
+            </p>
+<div class="publication">
+<div class="publication-title">
+<a href="https://hai-gen.github.io/2024/papers/1165-Young.pdf" target="_blank">
+                        Deriving Desirable Artistic Generative Distributions from Individual Identity Statements (2024)
+                    </a>
+</div>
+<div class="publication-authors">Halley Young</div>
+<div class="publication-venue">HAI‑GEN @ IUI Workshops 2024</div>
+<p>Shows how identity statements can be converted into usable, steerable distributions—supporting exploration and agency rather than prescribing a single “correct” output.</p>
+</div>
+<div class="publication">
+<div class="publication-title">
+<a href="https://proceedings.neurips.cc/paper_files/paper/2022/file/f13ceb1b94145aad0e54186373cc86d7-Paper-Conference.pdf" target="_blank">
+                        Neurosymbolic Deep Generative Models for Sequence Data with Relational Constraints (2022)
+                    </a>
+</div>
+<div class="publication-authors">Joint work with Osbert Bastani and Maxwell Du</div>
+<div class="publication-venue">NeurIPS 2022</div>
+<p>Develops methods for measuring and enforcing global coherence in generated sequences, maintaining both local quality and structural integrity.</p>
+</div>
+<div class="publication">
+<div class="publication-title">
+<a href="https://hai-gen.github.io/2022/papers/paper-HAIGEN-YoungHalley.pdf" target="_blank">
+                        Compositional Steering of Music Transformers (2022)
+                    </a>
+</div>
+<div class="publication-authors">Joint work with Jesse Engel, Vincent Dumoulin, Pablo Castro, and Anna Huang</div>
+<div class="publication-venue">HAI‑GEN @ IUI Workshops 2022</div>
+<p>Introduces steering mechanisms that add user control without retraining or parameter manipulation, preserving model capabilities while expanding controllability.</p>
+</div>
+<div class="publication">
+<div class="publication-title">
+<a href="https://proceedings.mlr.press/v97/young19a.html" target="_blank">
+                        Learning Neurosymbolic Generative Models via Program Synthesis (2019)
+                    </a>
+</div>
+<div class="publication-authors">Joint work with Osbert Bastani and Mayur Naik</div>
+<div class="publication-venue">ICML 2019</div>
+<p>Uses program synthesis to discover latent structure that can guide generation, laying groundwork for interpretable and controllable generative modeling.</p>
+</div>
+</div>
+</section>
+<section id="experience">
+<div class="container">
+<div class="section-header">
+<h2>Experience</h2>
+<p class="section-subtitle">Roles spanning controllable generation, creative AI, and reliable systems</p>
+</div>
+<div class="timeline">
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div class="timeline-content">
+<div class="timeline-date">2023–Present</div>
+<h3>Microsoft Research, NYC</h3>
+<p><strong>Postdoctoral Researcher</strong></p>
+<p>Developing algorithms and evaluation methods for diverse, steerable generation and for reliability‑oriented tooling that connects LLMs to checkable artifacts.</p>
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div class="timeline-content">
+<div class="timeline-date">2021–2023</div>
+<h3>Google Brain / Magenta</h3>
+<p><strong>Research Intern</strong></p>
+<p>Built controllable generative music models and tooling focused on user agency, avoiding both de‑agentification and homogenization.</p>
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div class="timeline-content">
+<div class="timeline-date">2019–2020</div>
+<h3>Riffit</h3>
+<p><strong>Software Engineer / Researcher</strong></p>
+<p>Research in automated music production for therapeutic purposes, resulting in a patent.</p>
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div class="timeline-content">
+<div class="timeline-date">2020–2021</div>
+<h3>University of Pennsylvania</h3>
+<p><strong>Teaching Assistant</strong></p>
+<p>TA for Graduate AI; Head TA for Graduate Applied ML. Emphasized both technical rigor and real‑world impacts of deployment.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="section-alternate" id="education">
+<div class="container">
+<div class="section-header">
+<h2>Education</h2>
+</div>
+<div class="timeline">
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div class="timeline-content">
+<div class="timeline-date">2017–2023</div>
+<h3>PhD in Computer Science</h3>
+<p><strong>University of Pennsylvania</strong></p>
+<p>Research on controllable generative models and structure‑aware generation (including neurosymbolic approaches). Chateaubriand Fellow.</p>
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div class="timeline-content">
+<div class="timeline-date">2014–2017</div>
+<h3>B.A. magna cum laude, Computer Science</h3>
+<p><strong>New York University</strong></p>
+<p>Selected honors include the Faculty Memorial Prize and the Computer Science Prize for Outstanding Performance in Computer Science.</p>
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div class="timeline-content">
+<div class="timeline-date">2013–2014</div>
+<h3>B.A. Candidate</h3>
+<p><strong>University of Chicago</strong></p>
+<p>Awarded the Lilian Gertrude Selz Prize.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="skills">
+<div class="container">
+<div class="section-header">
+<h2>Skills</h2>
+</div>
+<h3>Programming Languages</h3>
+<div class="skills-container">
+<div class="skill-tag"><i class="fab fa-python"></i> Python (PyTorch, JAX)</div>
+<div class="skill-tag">Julia</div>
+<div class="skill-tag">C</div>
+<div class="skill-tag">Matlab</div>
+<div class="skill-tag">Haskell</div>
+</div>
+<h3>Research Areas</h3>
+<div class="skills-container">
+<div class="skill-tag">Generative Models</div>
+<div class="skill-tag">Novelty &amp; Diversity Metrics</div>
+<div class="skill-tag">Controllability</div>
+<div class="skill-tag">Neurosymbolic Models</div>
+<div class="skill-tag">Program Synthesis</div>
+<div class="skill-tag">Formal Methods</div>
+<div class="skill-tag">Human‑AI Interaction</div>
+<div class="skill-tag">Music &amp; Creative AI</div>
+</div>
+</div>
+</section>
+<section class="section-alternate" id="contact">
+<div class="container">
+<div class="section-header">
+<h2>Contact</h2>
+<p class="section-subtitle">Reach out for collaboration, speaking, or advising</p>
+</div>
+<div class="contact-grid">
+<div class="contact-item">
+<div class="contact-icon"><i class="fas fa-envelope"></i></div>
+<div class="contact-text">
+<div class="contact-label">Email</div>
+<div class="contact-value">
+<a href="mailto:halley@diversifyai.net">halley@diversifyai.net</a>
+</div>
+</div>
+</div>
+<div class="contact-item">
+<div class="contact-icon"><i class="fas fa-globe"></i></div>
+<div class="contact-text">
+<div class="contact-label">Creative hub</div>
+<div class="contact-value">
+<a href="https://aiforcreativity.net/" target="_blank">aiforcreativity.net</a>
+</div>
+</div>
+</div>
+<div class="contact-item">
+<div class="contact-icon"><i class="fab fa-github"></i></div>
+<div class="contact-text">
+<div class="contact-label">GitHub</div>
+<div class="contact-value">
+<a href="https://github.com/thehalleyyoung" target="_blank">github.com/thehalleyyoung</a>
+</div>
+</div>
+</div>
+<div class="contact-item">
+<div class="contact-icon"><i class="fab fa-soundcloud"></i></div>
+<div class="contact-text">
+<div class="contact-label">SoundCloud</div>
+<div class="contact-value">
+<a href="https://soundcloud.com/halleyyoung" target="_blank">Music demos</a>
+</div>
+</div>
+</div>
+</div>
+<p class="small-note" style="margin-top: 2rem; text-align:center;">
+                © 2025 Halley Young • Last updated December 2025
+            </p>
+</div>
+</section>
+</main>
+<script>
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {

@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DiversifyAI: Combating Homogenization in AI-Generated Content</title>
+  <style>
+    :root {
+      --primary: #2d3748;
+      --secondary: #7f56d9;
+      --accent: #d946ef;
+      --light: #f8fafc;
+      --dark: #1a202c;
+      --gray: #a0aec0;
+      --success: #48bb78;
+      --business: #3b82f6;
+      --creative: #d946ef;
+      --gradient-1: linear-gradient(135deg, var(--secondary), var(--accent));
+      --gradient-business: linear-gradient(135deg, #3b82f6, #06b6d4);
+      --gradient-creative: linear-gradient(135deg, #d946ef, #ec4899);
+      --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      line-height: 1.6;
+      color: var(--primary);
+      background-color: var(--light);
+      overflow-x: hidden;
+    }
+
+
+    header {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 5%;
+      position: relative;
+      background-color: #f9fafb;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 80%;
+      height: 200%;
+      background: var(--gradient-1);
+      transform: rotate(-15deg);
+      z-index: 0;
+      opacity: 0.1;
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    }
+
+    .nav-container {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      padding: 1rem 5%;
+      box-shadow: var(--box-shadow);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 500;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background: var(--gradient-1);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .wide-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .header-content {
+      max-width: 800px;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', Georgia, serif;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      background: var(--gradient-1);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      margin: 3rem 0 1.5rem;
+      color: var(--primary);
+    }
+
+    h3 {
+      font-size: 1.75rem;
+      margin: 2rem 0 1rem;
+      color: var(--secondary);
+    }
+
+    .subtitle {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      color: var(--gray);
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--gradient-1);
+      color: white;
+      box-shadow: var(--box-shadow);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--secondary);
+      border: 1px solid var(--secondary);
+    }
+
+    .btn-business {
+      background: var(--gradient-business);
+      color: white;
+      box-shadow: var(--box-shadow);
+    }
+
+    .btn-creative {
+      background: var(--gradient-creative);
+      color: white;
+      box-shadow: var(--box-shadow);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+
+    section {
+      padding: 5rem 0;
+    }
+
+    .section-alternate {
+      background-color: #f9fafb;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-subtitle {
+      color: var(--gray);
+      font-size: 1.25rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+
+    .card {
+      background: white;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+
+    .card-content {
+      padding: 1.5rem;
+    }
+
+    .card-title {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+
+    .card-subtitle {
+      color: var(--gray);
+      font-size: 0.875rem;
+      margin-bottom: 1rem;
+    }
+
+    .card-text {
+      margin-bottom: 1.5rem;
+    }
+
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+
+    .highlight-item {
+      text-align: center;
+      padding: 2rem;
+      background: white;
+      border-radius: 1rem;
+      box-shadow: var(--box-shadow);
+      transition: all 0.3s ease;
+    }
+
+    .highlight-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+
+    .highlight-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      background: var(--gradient-1);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .highlight-title {
+      font-weight: 600;
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .cta {
+      background: #007ACC;
+      color: #fff;
+      padding: 40px;
+      text-align: center;
+      border-radius: 8px;
+      margin-top: 40px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .cta h2 {
+      margin-bottom: 10px;
+      font-size: 2em;
+      color: white;
+    }
+    
+    .cta p {
+      font-size: 1.1em;
+      margin-bottom: 20px;
+    }
+    
+    .cta a, .cta button {
+      background: #fff;
+      color: #007ACC;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.1em;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background 0.3s, transform 0.3s;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 10px;
+    }
+    
+    .cta a:hover, .cta button:hover {
+      background: #e6e6e6;
+      transform: translateY(-2px);
+    }
+
+    .research-finding {
+      border-left: 4px solid var(--secondary);
+      padding-left: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .research-stat {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--secondary);
+      margin-bottom: 0.5rem;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+
+    .dalle-art {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: 30px auto;
+      border: 4px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      padding: 3rem 0;
+      background: var(--dark);
+      color: white;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .social-link {
+      width: 400px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.25rem;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .social-link:hover {
+      background: white;
+      color: var(--dark);
+      transform: translateY(-3px);
+    }
+
+    .publication {
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .publication-title {
+      font-weight: 600;
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      color: var(--secondary);
+    }
+
+    .publication-authors {
+      font-style: italic;
+      margin-bottom: 0.5rem;
+      color: var(--gray);
+    }
+
+    .publication-venue {
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    blockquote {
+      border-left: 4px solid var(--secondary);
+      padding-left: 1rem;
+      margin: 2rem 0;
+      font-style: italic;
+      color: var(--gray);
+    }
+
+    .audience-choice {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .audience-card {
+      background: white;
+      border-radius: 1rem;
+      padding: 3rem 2rem;
+      text-align: center;
+      box-shadow: var(--box-shadow);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .audience-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+
+    .audience-business {
+      border-top: 5px solid var(--business);
+    }
+
+    .audience-creative {
+      border-top: 5px solid var(--creative);
+    }
+
+    .audience-icon {
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .business-icon {
+      color: var(--business);
+    }
+
+    .creative-icon {
+      color: var(--creative);
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .section-business h3 {
+      color: var(--business);
+    }
+
+    .section-creative h3 {
+      color: var(--creative);
+    }
+
+    .back-button {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: var(--dark);
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 2rem;
+      font-weight: 600;
+      cursor: pointer;
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: var(--box-shadow);
+    }
+
+    .back-button:hover {
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+      h2 {
+        font-size: 2rem;
+      }
+      h3 {
+        font-size: 1.5rem;
+      }
+      .subtitle {
+        font-size: 1.25rem;
+      }
+      .nav-links {
+        display: none;
+      }
+      .two-column, .audience-choice {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="nav-container">
+    <nav>
+      <div class="logo">DiversifyAI</div>
+      <div class="nav-links" id="navLinks">
+        <a href="#problem">The Problem</a>
+        <a href="#research">Research</a>
+        <a href="#get-involved">Get Involved</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+
+  <button class="back-button" id="backButton">
+    <i class="fas fa-arrow-left"></i> Back to Home
+  </button>
+
+  <header>
+    <div class="container header-content">
+      <h1>DiversifyAI</h1>
+      <p class="subtitle">Maintaining Diversity of Human Expression in the Age of AI</p>
+      <p>AI systems are rapidly converging toward statistical averages, limiting the richness and value of their outputs. Our research focuses on developing methods for diversifying AI outputs across creative and technical domains, ensuring that AI enhances rather than diminishes human autonomy and expression.</p>
+    </div>
+  </header>
+
+  <section id="problem">
+    <div class="container">
+      <div class="section-header">
+        <h2>The Homogenization Problem</h2>
+        <p class="section-subtitle">AI systems are producing increasingly uniform outputs, threatening diversity of expression and limiting value creation</p>
+      </div>
+
+      <div class="research-finding">
+        <div class="research-stat">249 of 250</div>
+        <p>In a recent study, 249 out of 250 poems generated by ChatGPT without special prompting were all identified <strong>by ChatGPT itself</strong> as being derived from the same poet (John Keats). This striking homogeneity illustrates how large language models tend to converge toward a "safe" statistical mean.</p>
+      </div>
+
+      <p>This homogenization extends beyond poetry to code, design, business ideas, marketing copy, brand slogans, and other domains where innovation requires deviation from the norm. It's not just a problem for artists—it's a critical issue for businesses, consumers, and society at large.</p>
+
+      <h3>Why AI Outputs Become Homogeneous</h3>
+      <p>Large language models (LLMs) like ChatGPT learn patterns from vast datasets, but they tend to optimize for the "average" response that's statistically most likely to be correct or well-received. This leads to several problems:</p>
+      
+      <div class="highlights-grid">
+        <div class="highlight-item">
+          <div class="highlight-icon"><i class="fas fa-clone"></i></div>
+          <div class="highlight-title">Output Homogenization</div>
+          <p>AI systems converge toward a narrow range of outputs that represent a statistical average rather than the full spectrum of possibilities</p>
+        </div>
+        <div class="highlight-item">
+          <div class="highlight-icon"><i class="fas fa-robot"></i></div>
+          <div class="highlight-title">Deprivation of User Autonomy</div>
+          <p>AI tools can replace human decision-making rather than augmenting it, reducing agency and creative control</p>
+        </div>
+        <div class="highlight-item">
+          <div class="highlight-icon"><i class="fas fa-chart-line"></i></div>
+          <div class="highlight-title">Economic Implications</div>
+          <p>Businesses and markets thrive on differentiation and innovation, which are threatened by homogeneous AI outputs</p>
+        </div>
+      </div>
+
+      <div class="audience-choice" id="audienceChoice">
+        <div class="audience-card audience-business" id="chooseBusiness">
+          <div class="audience-icon business-icon">
+            <i class="fas fa-building"></i>
+          </div>
+          <h3>For Business</h3>
+          <p>Learn how AI diversity research can improve competitive advantage, customer experience, and innovation in business contexts</p>
+          <div class="btn btn-business">Explore Business Applications</div>
+        </div>
+
+        <div class="audience-card audience-creative" id="chooseCreative">
+          <div class="audience-icon creative-icon">
+            <i class="fas fa-paint-brush"></i>
+          </div>
+          <h3>For Creatives</h3>
+          <p>Discover how AI diversity research can enhance creative expression, artistic exploration, and cross-media collaboration</p>
+          <div class="btn btn-creative">Explore Creative Applications</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- <section id="research" class="section-alternate">
+    <div class="container">
+      <div class="section-header">
+        <h2>Research on AI Diversity</h2>
+        <p class="section-subtitle">Cutting-edge research to understand and overcome homogenization in AI outputs</p>
+      </div>
+
+      <p>Our research addresses the technical and social aspects of diversity in AI-generated content. We're developing methods to maintain diversity in AI outputs <strong>in cases where individuals, companies, or society would benefit from exploring a range of good but different possibilities</strong> rather than a single "optimal" solution.</p>
+
+      <h3>Chain-of-Specification Prompting</h3>
+      <p>Our recent research has developed a novel approach called Chain-of-Specification prompting for improving structural diversity in LLM outputs. This method:</p>
+      <ul>
+        <li>First has the LLM generate a specification encoding structural features</li>
+        <li>Then prompts the LLM to generate text satisfying these features</li>
+        <li>Significantly improves diversity compared to standard approaches</li>
+        <li>Works with blackbox LLMs without requiring access to their internals</li>
+      </ul>
+
+      <div class="publication">
+        <div class="publication-title">Improving Structural Diversity of Blackbox LLMs via Chain-of-Specification Prompting</div>
+        <div class="publication-authors">Halley Young, Yimeng Zeng, Jacob Gardner, Osbert Bastani</div>
+        <div class="publication-venue">arXiv 2408.06186 (2024)</div>
+        <p>Introduces a diversity metric called structural diversity, where the user provides a mapping from generated text to features capturing the kinds of diversity they care about, and demonstrates that Chain-of-Specification prompting significantly improves diversity in poetry and code domains.</p>
+      </div>
+
+      <div class="publication">
+        <div class="publication-title">Neurosymbolic Deep Generative Models for Sequence Data with Relational Constraints</div>
+        <div class="publication-authors">Joint work with Osbert Bastani and Maxwell Du</div>
+        <div class="publication-venue">Published in NEURIPS 2022</div>
+        <p>Developed a method for measuring and producing meaningful global coherence in domains such as music and poetry, enabling generated outputs that maintain both local quality and structural integrity.</p>
+      </div>
+      
+      <div class="publication">
+        <div class="publication-title">Compositional Steering of Music Transformers</div>
+        <div class="publication-authors">Joint work with Jesse Engel, Vincent Dumoulin, Pablo Castro, and Anna Huang</div>
+        <div class="publication-venue">Published in HAI-GEN 2022</div>
+        <p>Developed a novel approach to steer music transformer models without manipulating their parameters, giving users greater control over generated music while preserving model capabilities.</p>
+      </div>
+    </div>
+  </section>
+ -->
+  <!-- Business Content -->
+  <section id="business" class="section-business hidden">
+    <div class="container">
+      <div class="section-header">
+        <h2>AI Diversity in Business Contexts</h2>
+        <p class="section-subtitle">How diverse AI outputs can drive innovation and competitive advantage</p>
+      </div>
+
+      <div class="two-column">
+        <div>
+          <h3>Business Impact of AI Homogenization</h3>
+          <p>The lack of diversity in AI-generated content creates significant challenges for businesses:</p>
+          <ul>
+            <li><strong>Innovation stagnation:</strong> When AI systems converge on similar outputs, they fail to generate truly novel ideas</li>
+            <li><strong>Competitive sameness:</strong> Organizations using identical AI tools risk developing indistinguishable strategies and content</li>
+            <li><strong>Customer experience limitation:</strong> Homogeneous AI outputs fail to address the diverse needs and preferences of different customer segments</li>
+            <li><strong>Risk concentration:</strong> Similar AI-guided decisions across competitors can create systemic market risks</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Research Applications for Commercial Domains</h3>
+          <p>Our research explores diversity techniques with particular relevance to business contexts:</p>
+          <ul>
+            <li><strong>Marketing content:</strong> Studies show AI-generated marketing copy tends to converge on similar messaging and tone, limiting brand differentiation</li>
+            <li><strong>Brand slogans:</strong> Our research examines how to preserve brand voice while generating truly diverse tagline options</li>
+            <li><strong>Strategic planning:</strong> Techniques for ensuring AI tools provide genuinely different strategic alternatives rather than minor variations</li>
+            <li><strong>Product design:</strong> Methods for exploring wider design spaces that maintain quality while increasing distinctiveness</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card-container">
+        <div class="card">
+          <div class="card-content">
+            <h3 class="card-title">Diversifying Marketing Plans</h3>
+            <p class="card-subtitle">Research in submission</p>
+            <p class="card-text">Recent research has examined how AI systems generate marketing plans and found a troubling trend toward homogenization in strategy, messaging approach, and channel recommendations. Our studies explore techniques to increase the diversity of marketing strategies generated by AI while maintaining their effectiveness.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-content">
+            <h3 class="card-title">Brand Voice Diversity</h3>
+            <p class="card-subtitle">Ongoing research</p>
+            <p class="card-text">While maintaining brand consistency is important, AI systems often over-constrain outputs to a narrow interpretation of brand voice. Our work examines how to enable a wider range of creative expressions that remain authentic to core brand values while avoiding repetitive messaging.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-content">
+            <h3 class="card-title">Diverse Software Solutions</h3>
+            <p class="card-subtitle">Published work</p>
+            <p class="card-text">When generating code, AI systems often default to a single approach, missing opportunities for optimization. Our research enables the generation of diverse implementation approaches with different performance characteristics, enabling better decision-making.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3>Understanding the Business Value of AI Diversity</h3>
+      <p>Diverse AI outputs create business value through several mechanisms:</p>
+
+      <div class="highlights-grid">
+        <div class="highlight-item">
+          <div class="highlight-icon"><i class="fas fa-lightbulb"></i></div>
+          <div class="highlight-title">Innovation</div>
+          <p>Genuinely diverse options expand the solution space and increase the likelihood of breakthrough ideas</p>
+        </div>
+        <div class="highlight-item">
+          <div class="highlight-icon"><i class="fas fa-fingerprint"></i></div>
+          <div class="highlight-title">Differentiation</div>
+          <p>Distinctive AI-generated content helps brands stand out in crowded markets</p>
+        </div>
+        <div class="highlight-item">
+          <div class="highlight-icon"><i class="fas fa-users"></i></div>
+          <div class="highlight-title">Audience Targeting</div>
+          <p>Diverse outputs can better address varied customer preferences and market segments</p>
+        </div>
+        <div class="highlight-item">
+          <div class="highlight-icon"><i class="fas fa-shield-alt"></i></div>
+          <div class="highlight-title">Risk Mitigation</div>
+          <p>Exploring diverse scenarios improves strategic resilience and adaptability</p>
+        </div>
+      </div>
+
+      <div class="cta">
+        <h2>Learn More About Business Applications</h2>
+        <p>Our research on AI diversity has significant implications for business innovation and competitive advantage. While I cannot offer direct consulting services due to my current research position, I'm happy to discuss the implications of our research for business contexts or potential research collaborations.</p>
+        <a href="mailto:halley@diversifyai.net">Contact About Research Findings</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Creative Content -->
+  <section id="creative" class="section-creative hidden">
+    <div class="wide-container">
+      <div class="section-header">
+        <h2>Creative Applications</h2>
+        <p class="section-subtitle">Exploring and enhancing creative expression through diverse AI</p>
+      </div>
+
+      <h3>Fostering Diversity in AI-Generated Art - There is a Real Problem That Needs to Be Addressed</h3>
+      <p>Even the most advanced AI can fall into uniformity. My experiments with ChatGPT revealed a tendency toward a singular poetic voice—an echo of John Keats in 250 generated poems. This discovery drives my commitment to diversify AI responses, ensuring our creative tools resonate with the full spectrum of human expression.</p>
+
+      <h3>The answer has to come from both computer scientists and artists - here are a few of my journeys...</h3>
+
+      <div class="card-container">
+        <div class="card">
+          <div class="card-content">
+            <h3 class="card-title">Identity-Based Exploration</h3>
+            <p class="card-subtitle">Redefining and Exploring Your Creative Self</p>
+            <p class="card-text">
+              What if your inner narrative could blossom into a multidimensional work of art that was not in any way competing with the work of your own two hands? With my identity-based exploration tool, an "identity statement" unfolds into a rich tapestry of poetic, musical, narrative, and visual expressions. It is a transformative process that invites you to explore hidden facets of your creative identity, without any pretense of replacing you.
+            </p>
+            <img src="dalle2.webp" alt="Identity Exploration" class="dalle-art">
+            <p>
+              <a href="https://diversifyai.net/identityproject.html" target="_blank">Discover the Possibilities</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-content">
+            <h3 class="card-title">Manifestos as Generative Material</h3>
+            <p class="card-subtitle">Alternative Personae from Artistic Beliefs</p>
+            <p class="card-text">
+              Artists shouldn't have to feel comfortable handing computer scientists their work. An identity statement is enough to generate interesting art that is not a replacement for you. But if you want to go one step further, you can provide a manifesto - a statement of artistic beliefs - and learn more about 'alternative personae' who could share your beliefs but are decidedly not... you.
+            </p>
+            <img src="dalle1.webp" alt="Manifesto Exploration" class="dalle-art">
+            <p>
+              <a href="https://diversifyai.net/manifestos.html" target="_blank">Discover the Possibilities</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-content">
+            <h3 class="card-title">Artistry in Another Medium as Counter-Ego</h3>
+            <p class="card-subtitle">Cross-medium artistic translation</p>
+            <p class="card-text">
+              I have always believed that art is a conversation—a dialogue between the old and the new, but also between media. My Visual Homages serve as counter-egos to poets, transforming the essence of text into a living visual narrative. When Charles Bernstein called my homage a "counter-ego or non-human comrade," it affirmed my vision of art that transcends traditional boundaries.
+            </p>
+            <img src="Disillusionment.png" alt="Visual Homage Example" class="dalle-art">
+            <p>
+              <a href="https://diversifyai.net/bernstein1.html" target="_blank">Step into the Visual Dialogue</a>
+            </p>
+            <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1917168167&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+            <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">
+              <a href="https://soundcloud.com/user-332259139" title="Halley" target="_blank" style="color: #cccccc; text-decoration: none;">Halley</a> · 
+              <a href="https://soundcloud.com/user-332259139/sets/setting-the-greats" title="Setting the Greats" target="_blank" style="color: #cccccc; text-decoration: none;">Setting the Greats - A Dive into Algorithmic Text-Setting</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3>A Collection of Aesthetically and Mathematically Rigorous Scholarship: Art is Beautiful, And So Is Computation</h3>
+      <p>In a realm where digital tools often seem to impose limits, I like to show how mathematics and computation make artistic practice even more 'magical'. By revealing that Ableton is Turing complete-that is, that it is in some ways the same as our most powerful supercomputers—I expose the beautiful unpredictability of live performance. My work melds rigorous computation with an artist's intuition, challenging you to reimagine your creative medium. I would be happy to work with you on formalizing any theory you have about your art in a language computer scientists or mathematicians would appreciate.</p>
+      <div>
+        <h4>Samples:</h4>
+        <a href="https://arxiv.org/abs/2309.05595">Undecidability Results and Their Relevance in Modern Music-Making (A Preprint)</a><br>
+        <a href="axiomatichermeneutics.pdf">Axiomatic Hermeneutics (A Preprint)</a>
+      </div>
+
+      <div class="cta">
+        <h2>Join the Creative Revolution</h2>
+        <p>
+          I invite fellow poets, narrators, musicians, and visual artists to share your identity statements and/or manifestos. Alternatively, grant me the honor of crafting a Cross-Medium Homage to your work, as we co-create a future where AI is a tool that empowers art.
+        </p>
+        <a href="mailto:halley@diversifyai.net">Submit Your Vision Via Email</a><br /><br />
+        <a href="mailto:undecided@diversifyai.net">If you want to get involved but don't know in what capacity, click this link and send an email (optionally blank, or with whatever information you want).</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="get-involved">
+    <div class="container">
+      <div class="section-header">
+        <h2>Get Involved</h2>
+        <p class="section-subtitle">Join our mission to maintain creative and technical diversity in the age of AI</p>
+      </div>
+
+      <div class="two-column">
+        <div>
+          <h3>For Artists and Creatives</h3>
+          <p>I invite fellow poets, narrators, musicians, and visual artists to contribute to this research by sharing your experiences and creative insights. Your perspective is invaluable as we develop techniques that preserve the full spectrum of creative expression.</p>
+          <p>Ways to collaborate:</p>
+          <ul>
+            <li>Submit your identity statement to explore AI-generated interpretations</li>
+            <li>Share your artistic manifesto to develop alternative creative personae</li>
+            <li>Request a cross-medium homage to your creative work</li>
+            <li>Collaborate on research exploring creative applications of diverse AI</li>
+          </ul>
+          <a href="mailto:halley@diversifyai.net" class="btn btn-primary">Submit Your Vision</a>
+        </div>
+        <div>
+          <h3>For Researchers and Developers</h3>
+          <p>We're always looking for collaborators interested in the technical and social aspects of AI diversity. Whether you're a machine learning researcher, social scientist, or software developer, there are many ways to contribute:</p>
+          <ul>
+            <li>Collaborate on research papers and projects</li>
+            <li>Develop tools and techniques for measuring and improving AI diversity</li>
+            <li>Help build applications that demonstrate the value of diverse AI outputs</li>
+            <li>Propose new domains where diversity enhancement is needed</li>
+          </ul>
+          <a href="mailto:halley@diversifyai.net" class="btn btn-primary">Contact About Research Collaboration</a>
+        </div>
+      </div>
+
+      <div class="cta">
+        <h2>Join Our Research Community</h2>
+        <p>
+          Even if you're not sure how you want to get involved, we'd love to hear from you. Whether you're an artist concerned about AI's impact on creativity, a business leader interested in the competitive implications of AI homogenization, or simply someone interested in this important issue, please reach out.
+        </p>
+        <a href="mailto:halley@diversifyai.net">Get in Touch</a><br /><br />
+        <a href="mailto:undecided@diversifyai.net">If you want to get involved but don't know in what capacity, click this link and send an email (optionally blank, or with whatever information you want).</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section-alternate">
+    <div class="container">
+      <div class="section-header">
+        <h2>About Halley Young</h2>
+        <p class="section-subtitle">Leading research on AI diversity and human-AI collaboration</p>
+      </div>
+
+      <div class="two-column">
+        <div>
+          <p>I'm a postdoctoral researcher at Microsoft Research in NYC, with a focus on diversifying the output of AI in both creative and technical domains. With a background in computer science and expertise in deep learning, generative models, and music AI, I approach artificial intelligence from a unique perspective: how can we ensure AI systems enhance human creativity and autonomy rather than diminish them?</p>
+          
+          <h3>Background and Expertise</h3>
+          <p>My research addresses two related but distinct dangers in current AI development:</p>
+          <ol>
+            <li><strong>Output homogenization:</strong> The tendency of AI systems to converge toward a narrow range of outputs that represent a statistical average rather than the full spectrum of human expression</li>
+            <li><strong>Deprivation of user autonomy:</strong> The risk that AI tools replace human decision-making rather than augmenting it</li>
+          </ol>
+          
+          <h3>Education</h3>
+          <ul>
+            <li>PhD in Computer Science, University of Pennsylvania (2017-2023)</li>
+            <li>B.A. magna cum laude, Computer Science, New York University (2014-2017)</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Experience</h3>
+          <ul>
+            <li><strong>Microsoft Research, NYC</strong> - Postdoctoral Researcher (2023-Present)</li>
+            <li><strong>Google Brain/Magenta</strong> - Research Intern (2021-2023)</li>
+            <li><strong>Riffit</strong> - Software Engineer/Researcher (2019-2020)</li>
+            <li><strong>University of Pennsylvania</strong> - Teaching Assistant (2020-2021)</li>
+          </ul>
+          
+          <h3>Research Areas</h3>
+          <div class="skills-container" style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem;">
+            <span style="padding: 0.5rem 1rem; background: white; border-radius: 2rem; box-shadow: var(--box-shadow);">Deep Learning</span>
+            <span style="padding: 0.5rem 1rem; background: white; border-radius: 2rem; box-shadow: var(--box-shadow);">Generative Models</span>
+            <span style="padding: 0.5rem 1rem; background: white; border-radius: 2rem; box-shadow: var(--box-shadow);">Steerable AI</span>
+            <span style="padding: 0.5rem 1rem; background: white; border-radius: 2rem; box-shadow: var(--box-shadow);">Music AI</span>
+            <span style="padding: 0.5rem 1rem; background: white; border-radius: 2rem; box-shadow: var(--box-shadow);">Formal Methods</span>
+            <span style="padding: 0.5rem 1rem; background: white; border-radius: 2rem; box-shadow: var(--box-shadow);">Human-AI Interaction</span>
+            <span style="padding: 0.5rem 1rem; background: white; border-radius: 2rem; box-shadow: var(--box-shadow);">AI Diversity</span>
+            <span style="padding: 0.5rem 1rem; background: white; border-radius: 2rem; box-shadow: var(--box-shadow);">Neurosymbolic Models</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="section-header">
+        <h2>Contact</h2>
+        <p class="section-subtitle">Get in touch to discuss research collaboration, creative partnerships, or learn about research findings</p>
+      </div>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem;">
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <div style="width: 50px; height: 50px; background: var(--gradient-1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div>
+            <div style="font-weight: 600; color: var(--primary);">Email</div>
+            <div>
+              <a href="mailto:halley@diversifyai.net" style="color: var(--secondary); text-decoration: none;">halley@diversifyai.net</a>
+            </div>
+          </div>
+        </div>
+        
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <div style="width: 50px; height: 50px; background: var(--gradient-1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">
+            <i class="fas fa-globe"></i>
+          </div>
+          <div>
+            <div style="font-weight: 600; color: var(--primary);">Website</div>
+            <div>
+              <a href="https://thehalleyyoung.github.io" target="_blank" style="color: var(--secondary); text-decoration: none;">Halley's Profile</a>
+            </div>
+          </div>
+        </div>
+        
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <div style="width: 50px; height: 50px; background: var(--gradient-1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">
+            <i class="fab fa-soundcloud"></i>
+          </div>
+          <div>
+            <div style="font-weight: 600; color: var(--primary);">SoundCloud</div>
+            <div>
+              <a href="https://soundcloud.com/halleyyoung" target="_blank" style="color: var(--secondary); text-decoration: none;">Music Generation Research (70,000+ views)</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <h3>DiversifyAI</h3>
+      <p>Maintaining Diversity in the Age of AI</p>      
+      <p style="color: var(--gray); max-width: 500px; margin: 0 auto;">&copy; 2025 Halley Young. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+    
+    // Sticky navigation
+    window.addEventListener('scroll', function() {
+      const nav = document.querySelector('.nav-container');
+      if (window.scrollY > 50) {
+        nav.style.background = 'rgba(255, 255, 255, 0.95)';
+        nav.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)';
+      } else {
+        nav.style.background = 'rgba(255, 255, 255, 0.9)';
+        nav.style.boxShadow = 'none';
+      }
+    });
+
+    // Audience choice functionality
+    const chooseBusiness = document.getElementById('chooseBusiness');
+    const chooseCreative = document.getElementById('chooseCreative');
+    const audienceChoice = document.getElementById('audienceChoice');
+    const businessSection = document.getElementById('business');
+    const creativeSection = document.getElementById('creative');
+    const backButton = document.getElementById('backButton');
+    const allSections = document.querySelectorAll('section');
+    const navLinks = document.getElementById('navLinks');
+
+    chooseBusiness.addEventListener('click', () => {
+      audienceChoice.classList.add('hidden');
+      // Hide all sections except business
+      allSections.forEach(section => {
+        if (section.id !== 'business') {
+          section.classList.add('hidden');
+        }
+      });
+      businessSection.classList.remove('hidden');
+      backButton.style.display = 'flex';
+      // Update navigation
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.classList.add('hidden');
+      });
+      window.scrollTo(0, 0);
+    });
+
+    chooseCreative.addEventListener('click', () => {
+      audienceChoice.classList.add('hidden');
+      // Hide all sections except creative
+      allSections.forEach(section => {
+        if (section.id !== 'creative') {
+          section.classList.add('hidden');
+        }
+      });
+      creativeSection.classList.remove('hidden');
+      backButton.style.display = 'flex';
+      // Update navigation
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.classList.add('hidden');
+      });
+      window.scrollTo(0, 0);
+    });
+
+    backButton.addEventListener('click', () => {
+      // Show all sections
+      allSections.forEach(section => {
+        section.classList.remove('hidden');
+      });
+      audienceChoice.classList.remove('hidden');
+      businessSection.classList.add('hidden');
+      creativeSection.classList.add('hidden');
+      backButton.style.display = 'none';
+      // Restore navigation
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.classList.remove('hidden');
+      });
+      // Scroll to audience choice
+      document.getElementById('problem').scrollIntoView({ behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
