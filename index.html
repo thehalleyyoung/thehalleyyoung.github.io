@@ -6,7 +6,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Halley Young — Diverse, steerable, and verifiable generative systems</title>
+<title>Halley Young — Novelty, diversity, and verification in LLMs</title>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -569,14 +569,116 @@
             text-transform: uppercase;
             color: rgba(127, 86, 217, 0.9);
         }
+
+        /* ── Featured-project banner ────────────────────────────── */
+        .featured-banner {
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 40%, #4c1d95 100%);
+            color: #e0e7ff;
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .featured-banner::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 70% 30%, rgba(139,92,246,.25) 0%, transparent 60%),
+                        radial-gradient(ellipse at 20% 80%, rgba(217,70,239,.15) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        .featured-banner .container { position: relative; z-index: 1; }
+        .featured-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            background: rgba(255,255,255,.08);
+            border: 1px solid rgba(255,255,255,.15);
+            border-radius: 99px;
+            padding: .3rem .9rem;
+            font-size: .8rem;
+            font-weight: 600;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: #c4b5fd;
+            margin-bottom: 1.5rem;
+        }
+        .featured-kicker .dot {
+            width: 7px; height: 7px;
+            border-radius: 50%;
+            background: #a78bfa;
+            box-shadow: 0 0 8px #a78bfa;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+        @keyframes pulse-dot { 0%,100%{opacity:1;} 50%{opacity:.4;} }
+        .featured-banner h2 {
+            color: #fff;
+            font-size: 2.75rem;
+            margin: 0 0 .5rem;
+        }
+        .featured-banner .featured-sub {
+            font-size: 1.3rem;
+            color: #c4b5fd;
+            margin-bottom: 1.5rem;
+        }
+        .featured-banner p { max-width: 800px; line-height: 1.75; }
+        .featured-pillars {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin: 2.5rem 0 2rem;
+        }
+        .pillar {
+            background: rgba(255,255,255,.06);
+            border: 1px solid rgba(255,255,255,.10);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            transition: transform .25s ease, background .25s ease;
+        }
+        .pillar:hover { transform: translateY(-4px); background: rgba(255,255,255,.10); }
+        .pillar-icon { font-size: 1.75rem; margin-bottom: .75rem; }
+        .pillar h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: .4rem;
+        }
+        .pillar p { font-size: .92rem; color: #c7d2fe; }
+        .featured-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            padding: .75rem 1.75rem;
+            background: linear-gradient(135deg, #8b5cf6, #d946ef);
+            color: #fff;
+            border-radius: .5rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform .2s ease, box-shadow .2s ease;
+            box-shadow: 0 4px 14px rgba(139,92,246,.35);
+        }
+        .featured-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(139,92,246,.45);
+        }
+        .btn-jugeo {
+            background: linear-gradient(135deg, #8b5cf6, #d946ef);
+            color: white !important;
+            border: none;
+        }
+        @media (max-width: 768px) {
+            .featured-banner h2 { font-size: 2rem; }
+            .featured-pillars { grid-template-columns: 1fr; }
+        }
 </style>
-<meta content="Halley Young: research on diverse, steerable, and verifiable generative systems across creative AI and formal methods." name="description"/></head>
+<meta content="Halley Young: research on novelty, diversity, and verification in LLMs. Creator of JuGeo, a proof-carrying Python verification system built on sheaf-theoretic judgment geometry." name="description"/></head>
 <body>
 <div class="nav-container">
 <nav>
 <div class="logo">Halley Young</div>
 <div class="nav-links">
 <a href="#about">About</a>
+<a href="#jugeo">JuGeo</a>
 <a href="#research">Research</a>
 <a href="#projects">Work</a>
 <a href="#publications">Publications</a>
@@ -589,24 +691,71 @@
 <div class="container header-content">
 <div class="kicker">Generative AI • Formal Methods • HCI</div>
 <h1>Halley Young</h1>
-<p class="subtitle">Diverse, steerable, and verifiable generative systems</p>
+<p class="subtitle">Novelty, diversity, and verification in LLMs</p>
 <p class="lead">
                 I build algorithms and tools that expand people’s <strong>option space</strong>—producing many high‑quality,
                 meaningfully different candidates under human‑meaningful constraints—so AI augments creativity and engineering
                 without collapsing into a single “safe” style.
             </p>
 <div class="cta-buttons">
+<a class="btn btn-jugeo" href="#jugeo"><i class="fas fa-shapes"></i> JuGeo — Featured Project</a>
 <a class="btn btn-primary" href="#publications"><i class="fas fa-file-lines"></i> Papers</a>
 <a class="btn btn-secondary" href="#projects"><i class="fas fa-layer-group"></i> Work &amp; Demos</a>
 </div>
 </div>
 </header>
 <main>
+<!-- ═════════════════ FEATURED: JuGeo ═════════════════ -->
+<section class="featured-banner" id="jugeo">
+<div class="container">
+<div class="featured-kicker"><span class="dot"></span> Featured Project</div>
+<h2>JuGeo — Judgment Geometry</h2>
+<p class="featured-sub">Novelty, diversity, and verification—unified in one system</p>
+<p>
+                Most verification tools produce a single proof object: it type‑checks or it doesn’t.
+                Most LLMs produce a single “best” answer. JuGeo rejects both defaults.
+                It is a <strong>proof‑carrying Python verification system</strong> built on sheaf theory
+                that treats evidence as <em>multi‑channel and multi‑perspective</em>—solver proofs,
+                runtime witnesses, and AI proposals coexist in the same judgment, each with its own
+                trust level and provenance. The result: verification that is <strong>diverse</strong>
+                (many evidence channels), <strong>novel</strong> (AI‑generated proof candidates alongside
+                classical proofs), and <strong>formally verified</strong> (cohomological descent guarantees
+                global consistency).
+            </p>
+
+<div class="featured-pillars">
+<div class="pillar">
+<div class="pillar-icon">🔬</div>
+<h4>Novelty</h4>
+<p>AI‑generated evidence is a first‑class channel with explicit trust accounting—not an external tool bolted on. LLM proposals sit alongside solver proofs, expanding the frontier of what can be verified.</p>
+</div>
+<div class="pillar">
+<div class="pillar-icon">🌐</div>
+<h4>Diversity</h4>
+<p>Judgments are multi‑channel bundles over a semantic site. Different evidence sources (Z3, runtime tests, Copilot suggestions) coexist at every coordinate—many valid perspectives, not one monolithic proof term.</p>
+</div>
+<div class="pillar">
+<div class="pillar-icon">🛡️</div>
+<h4>Verification</h4>
+<p>Sheaf descent glues local judgments into global guarantees. When gluing fails, the failure is a Čech cohomology obstruction—a precise, repairable mathematical object, not a cryptic error message.</p>
+</div>
+</div>
+
+<p style="margin-bottom:1.5rem; font-size:.95rem; color:#a5b4fc;">
+                JuGeo is the convergence point of my research program: the same principles that drive diverse generation in creative AI
+                (produce <em>many</em> valid candidates, expose controllable levers, retain guarantees) now apply to
+                program verification itself. 960+ Python modules · 93 Lean proofs · 13 decidable SMT fragments.
+            </p>
+
+<a class="featured-cta" href="https://thehalleyyoung.github.io/jugeo" target="_blank"><i class="fas fa-arrow-right"></i> Explore JuGeo</a>
+</div>
+</section>
+
 <section id="about">
 <div class="container">
 <div class="section-header">
 <h2>About</h2>
-<p class="section-subtitle">One program, many domains: design the <em>distribution</em>, not just the best guess</p>
+<p class="section-subtitle">One program, many domains: <em>novelty</em>, <em>diversity</em>, and <em>verification</em></p>
 </div>
 <div class="section-intro">
 <p>
@@ -769,15 +918,16 @@
 </div>
 <div class="card">
 <div class="card-content">
-<h3 class="card-title"><span class="badge">Now</span>Current Directions</h3>
-<p class="card-subtitle">What I’m building next</p>
+<h3 class="card-title"><span class="badge" style="background:rgba(139,92,246,.2);border-color:rgba(139,92,246,.35);">Featured</span><a href="#jugeo" style="color:var(--secondary);text-decoration:none;">JuGeo — Judgment Geometry</a></h3>
+<p class="card-subtitle">Novelty, diversity, and verification in one system &middot; <a href="https://thehalleyyoung.github.io/jugeo" target="_blank">thehalleyyoung.github.io/jugeo</a></p>
 <p class="card-text">
-                            Extending “distribution design under constraints” to modern LLM tooling and reliable agents.
+                            Proof‑carrying Python verification via sheaf‑theoretic judgment geometry.
+                            Multi‑channel evidence (solver proofs, runtime witnesses, AI proposals) with trust accounting and cohomological obstruction analysis.
                         </p>
 <ul class="card-list">
-<li>Novelty &amp; collision‑probability views of generation (text, code, and structured artifacts)</li>
-<li>LLM‑assisted verification tools (generate artifacts + check them with solvers/provers)</li>
-<li>Specification‑aware agent design: steering and safety as compositional constraints</li>
+<li>AI‑generated proofs as first‑class evidence alongside Z3 and Lean</li>
+<li>Diverse evidence channels: many valid perspectives per judgment, not a single proof term</li>
+<li>960+ modules, 93 Lean proofs, 13 decidable SMT fragments</li>
 </ul>
 </div>
 </div>
@@ -989,7 +1139,7 @@
 </div>
 </div>
 <p class="small-note" style="margin-top: 2rem; text-align:center;">
-                © 2025 Halley Young • Last updated December 2025
+                © 2025–2026 Halley Young • Last updated March 2026
             </p>
 </div>
 </section>
