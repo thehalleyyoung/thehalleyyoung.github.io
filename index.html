@@ -661,24 +661,18 @@
             transform: translateY(-2px);
             box-shadow: 0 8px 24px rgba(139,92,246,.45);
         }
-        .btn-jugeo {
-            background: linear-gradient(135deg, #8b5cf6, #d946ef);
-            color: white !important;
-            border: none;
-        }
         @media (max-width: 768px) {
             .featured-banner h2 { font-size: 2rem; }
             .featured-pillars { grid-template-columns: 1fr; }
         }
 </style>
-<meta content="Halley Young: research on novelty, diversity, and verification in LLMs. Creator of JuGeo, a proof-carrying Python verification system built on sheaf-theoretic judgment geometry." name="description"/></head>
+<meta content="Halley Young: research on novelty, diversity, controllability, and verification in generative AI systems." name="description"/></head>
 <body>
 <div class="nav-container">
 <nav>
 <div class="logo">Halley Young</div>
 <div class="nav-links">
 <a href="#about">About</a>
-<a href="#jugeo">JuGeo</a>
 <a href="#research">Research</a>
 <a href="#projects">Work</a>
 <a href="#publications">Publications</a>
@@ -698,59 +692,12 @@
                 without collapsing into a single “safe” style.
             </p>
 <div class="cta-buttons">
-<a class="btn btn-jugeo" href="#jugeo"><i class="fas fa-shapes"></i> JuGeo — Featured Project</a>
 <a class="btn btn-primary" href="#publications"><i class="fas fa-file-lines"></i> Papers</a>
 <a class="btn btn-secondary" href="#projects"><i class="fas fa-layer-group"></i> Work &amp; Demos</a>
 </div>
 </div>
 </header>
 <main>
-<!-- ═════════════════ FEATURED: JuGeo ═════════════════ -->
-<section class="featured-banner" id="jugeo">
-<div class="container">
-<div class="featured-kicker"><span class="dot"></span> Featured Project</div>
-<h2>JuGeo — Judgment Geometry</h2>
-<p class="featured-sub">Novelty, diversity, and verification—unified in one system</p>
-<p>
-                Most verification tools produce a single proof object: it type‑checks or it doesn’t.
-                Most LLMs produce a single “best” answer. JuGeo rejects both defaults.
-                It is a <strong>proof‑carrying Python verification system</strong> built on sheaf theory
-                that treats evidence as <em>multi‑channel and multi‑perspective</em>—solver proofs,
-                runtime witnesses, and AI proposals coexist in the same judgment, each with its own
-                trust level and provenance. The result: verification that is <strong>diverse</strong>
-                (many evidence channels), <strong>novel</strong> (AI‑generated proof candidates alongside
-                classical proofs), and <strong>formally verified</strong> (cohomological descent guarantees
-                global consistency).
-            </p>
-
-<div class="featured-pillars">
-<div class="pillar">
-<div class="pillar-icon">🔬</div>
-<h4>Novelty</h4>
-<p>AI‑generated evidence is a first‑class channel with explicit trust accounting—not an external tool bolted on. LLM proposals sit alongside solver proofs, expanding the frontier of what can be verified.</p>
-</div>
-<div class="pillar">
-<div class="pillar-icon">🌐</div>
-<h4>Diversity</h4>
-<p>Judgments are multi‑channel bundles over a semantic site. Different evidence sources (Z3, runtime tests, Copilot suggestions) coexist at every coordinate—many valid perspectives, not one monolithic proof term.</p>
-</div>
-<div class="pillar">
-<div class="pillar-icon">🛡️</div>
-<h4>Verification</h4>
-<p>Sheaf descent glues local judgments into global guarantees. When gluing fails, the failure is a Čech cohomology obstruction—a precise, repairable mathematical object, not a cryptic error message.</p>
-</div>
-</div>
-
-<p style="margin-bottom:1.5rem; font-size:.95rem; color:#a5b4fc;">
-                JuGeo is the convergence point of my research program: the same principles that drive diverse generation in creative AI
-                (produce <em>many</em> valid candidates, expose controllable levers, retain guarantees) now apply to
-                program verification itself. 960+ Python modules · 93 Lean proofs · 13 decidable SMT fragments.
-            </p>
-
-<a class="featured-cta" href="https://thehalleyyoung.github.io/jugeo" target="_blank"><i class="fas fa-arrow-right"></i> Explore JuGeo</a>
-</div>
-</section>
-
 <section id="about">
 <div class="container">
 <div class="section-header">
@@ -914,21 +861,6 @@
 <p class="card-text">
                             Practical demonstrations of controllable music generation: tools that help musicians iterate, explore, and keep authorship.
                         </p>
-</div>
-</div>
-<div class="card">
-<div class="card-content">
-<h3 class="card-title"><span class="badge" style="background:rgba(139,92,246,.2);border-color:rgba(139,92,246,.35);">Featured</span><a href="#jugeo" style="color:var(--secondary);text-decoration:none;">JuGeo — Judgment Geometry</a></h3>
-<p class="card-subtitle">Novelty, diversity, and verification in one system &middot; <a href="https://thehalleyyoung.github.io/jugeo" target="_blank">thehalleyyoung.github.io/jugeo</a></p>
-<p class="card-text">
-                            Proof‑carrying Python verification via sheaf‑theoretic judgment geometry.
-                            Multi‑channel evidence (solver proofs, runtime witnesses, AI proposals) with trust accounting and cohomological obstruction analysis.
-                        </p>
-<ul class="card-list">
-<li>AI‑generated proofs as first‑class evidence alongside Z3 and Lean</li>
-<li>Diverse evidence channels: many valid perspectives per judgment, not a single proof term</li>
-<li>960+ modules, 93 Lean proofs, 13 decidable SMT fragments</li>
-</ul>
 </div>
 </div>
 </div>
