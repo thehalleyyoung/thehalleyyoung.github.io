@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://thehalleyyoung.github.io/rac/sitemap.xml
